@@ -1,0 +1,1 @@
+New-ModuleManifest -Path "CAConsoleVisualizer\CAConsoleVisualizer.psd1" -RootModule CAConsoleVisualizer.psm1

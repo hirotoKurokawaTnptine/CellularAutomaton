@@ -1,0 +1,1 @@
+New-ModuleManifest -Path "ECA\ECA.psd1" -RootModule ECA.psm1
