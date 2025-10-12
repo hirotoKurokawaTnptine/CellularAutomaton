@@ -1,0 +1,32 @@
+function Get-LGNeighbors {
+    param(
+        [Parameter(Mandatory)][bigint[]]$State,
+        [Parameter(Mandatory)][bigint]$Mask,
+        [Parameter(Mandatory)][uint32]$y
+    )
+
+    $Height = $State.Count-1
+
+    [bigint]$Up = $(if($y -eq 0) { [bigint]::Zero } else {  $State[$y-1] -band $Mask })
+    [bigint]$Down = $(if($y -ge $Height) { [bigint]::Zero } else {  $State[$y+1] -band $Mask })
+
+    [bigint]$Left = $State[$y] -shr 1 -band $Mask
+    [bigint]$LeftUp = $Up -shr 1 -band $Mask
+    [bigint]$LeftDown = $Down -shr 1 -band $Mask
+
+    [bigint]$Right = $State[$y] -shl 1 -band $Mask
+    [bigint]$RightUp = $Up -shl 1 -band $Mask
+    [bigint]$RightDown = $Down -shl 1 -band $Mask
+
+    return [LGNeighbors]@{
+        Up = $Up
+        Down = $Down
+        Left = $Left
+        Right = $Right
+        LeftUp = $LeftUp    
+        LeftDown = $LeftDown
+        RightUp = $RightUp
+        RightDown = $RightDown
+    }
+    
+}

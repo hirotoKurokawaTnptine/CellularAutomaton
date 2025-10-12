@@ -1,0 +1,1 @@
+New-ModuleManifest -Path "LifeGame\LifeGame.psd1" -RootModule LifeGame.psm1
