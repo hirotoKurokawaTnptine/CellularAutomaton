@@ -11,7 +11,7 @@ $rnd = [System.Security.Cryptography.RandomNumberGenerator]::Create()
 $cnt = $GenerationCnt-1
 $Height   = [Console]::WindowHeight - 2
 $Width    = [Console]::WindowWidth - 2 
-$IntervalMs = 500
+$IntervalMs = 0
 
 [bigint[]]$board = 0..($Height-1) | ForEach-Object { Get-BigIntRandom -rndObj $rnd -BitLength $Width }
 

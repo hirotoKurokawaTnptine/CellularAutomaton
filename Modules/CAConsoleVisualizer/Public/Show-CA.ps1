@@ -4,6 +4,8 @@ $RowBorderMoji = "-"
 $ColumnBorderMoji = "|"
 $NewLineCode = "`r`n"
 
+$sb = [System.Text.StringBuilder]::new()
+
 function Show-CA {
     param(
         [Parameter(Mandatory)][bigint[]]$Board,
@@ -28,7 +30,7 @@ function Show-CA {
         $Height = $StartHeight + $LengthHeight - 3
     }
 
-    $sb = [System.Text.StringBuilder]::new()
+    
     $RowBorder = $RowBorderMoji * ($Width + 2)
 
     [void]$sb.Append($RowBorder)

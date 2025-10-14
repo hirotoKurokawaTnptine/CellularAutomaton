@@ -8,5 +8,5 @@ function Get-BigIntRandom {
     $byteArr = New-Object byte[] $byteLen
     $RndObj.GetBytes($byteArr)
     $bigint = [bigint]::new($byteArr)
-    return [bigint]::Abs($byteArr)
+    return [bigint]::Abs($bigint)
 }
