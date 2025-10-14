@@ -53,4 +53,5 @@ function Show-CA {
     [Console]::CursorVisible = $false
     [Console]::SetCursorPosition(0,0)
     [Console]::Write($sb)
+    $sb.Clear() | Out-Null
 }
