@@ -1,5 +1,6 @@
 param(
-    [Parameter(Mandatory)][int]$GenerationCnt
+    [Parameter(Mandatory)][int]$GenerationCnt,
+    [Parameter()][int]$IntervalMs=33
 )
 
 Import-Module (Join-Path $PSScriptRoot '..\Modules\LifeGame\LifeGame.psm1') -Force

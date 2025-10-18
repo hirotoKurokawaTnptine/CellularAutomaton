@@ -17,6 +17,9 @@ public class CAConsoleVisualizer {
 
         if (startWidth >= lengthWidth)   { throw new ArgumentException("StartWidth must be less than LengthWidth");   }
         if (startHeight >= lengthHeight) { throw new ArgumentException("StartHeight must be less than LengthHeight"); }
+        if (startHeight + lengthHeight > board.Length) {
+            throw new ArgumentException("StartHeight + LengthHeight exceeds board height");
+        }
 
         if ((startWidth + lengthWidth - 3) <= consoleWidth) {
             consoleWidth = (int)(startWidth + lengthWidth - 3);

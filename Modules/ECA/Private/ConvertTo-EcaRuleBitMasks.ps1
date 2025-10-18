@@ -1,4 +1,3 @@
-
 function ConvertTo-EcaRuleBitMasks {
     [OutputType([EcaRuleBitMasks])]
     param(

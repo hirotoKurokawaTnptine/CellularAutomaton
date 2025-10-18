@@ -1,5 +1,6 @@
 param(
     [Parameter(Mandatory)][int]$GenerationCnt,
+    [Parameter()][int]$IntervalMs=33,
     [Parameter()][byte]$RuleNo = [byte]90
 )
 
@@ -11,7 +12,6 @@ $ErrorActionPreference = "Stop"
 $cnt = $GenerationCnt-1
 $Height   = [Console]::BufferHeight
 $Width    = [Console]::BufferWidth
-$IntervalMs = 0
 
 [bigint]$InitState = [bigint]::One -shl ($Width / 2)
 
