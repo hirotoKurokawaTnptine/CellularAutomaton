@@ -6,11 +6,10 @@ function Get-LGNextState {
     )
 
     # 境界マスク
-    [bigint]$mask = ([bigint]::One -shl $Width) - 1
+    [bigint]$mask = ([bigint]1 -shl $Width) - 1
 
     $Center = $Board[$y] -band $mask
-    $Neighbors = Get-LGNeighbors -State $Board -Mask $mask -y $y
-    [bigint[]]$LifeCnt = Get-LifeCnt -Neighbors $Neighbors
+    [bigint[]]$LifeCnt = Get-LifeCnt -State $Board -Mask $mask -y $y
 
     # 生の数がちょうど２，３の場合のパターンのセルを抽出
     $bit2 = -bnot $LifeCnt[2] -band $LifeCnt[1] # 近傍に生が４つ以上のセル。3bit目が1のセルは4以上なので除外
